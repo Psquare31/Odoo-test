@@ -79,7 +79,7 @@ const Home = () => {
   return (
     <div className="p-4">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-4">Welcome to Odoo Q&A</h1>
+        <h1 className="text-3xl font-bold mb-4 handwritten-title">Welcome to Odoo Q&A</h1>
         <p className="text-gray-600 mb-4">
           Find answers to your questions or help others by answering theirs.
         </p>
@@ -90,11 +90,11 @@ const Home = () => {
             placeholder="Search questions..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="flex-1 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 border rounded px-4 py-2"
           />
           <Link
             to="/ask"
-            className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
+            className="bg-blue-500 text-white px-6 py-2 rounded btn"
           >
             Ask Question
           </Link>
@@ -120,11 +120,11 @@ const Home = () => {
             return (
               <div
                 key={question._id}
-                className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow"
+                className="border rounded-lg p-6 hover:shadow-md transition-shadow"
               >
                 <div className="flex justify-between items-start mb-2">
                   <Link to={`/question/${question._id}`} className="flex-1">
-                    <h2 className="text-xl font-semibold text-blue-600 hover:text-blue-800">
+                    <h2 className="text-xl font-semibold text-blue-600">
                       {question.title}
                     </h2>
                   </Link>
@@ -132,7 +132,7 @@ const Home = () => {
                     <button
                       onClick={() => handleDeleteQuestion(question._id)}
                       disabled={isDeleting}
-                      className="ml-4 bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="ml-4 bg-red-500 text-white px-3 py-1 rounded text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isDeleting ? 'Deleting...' : 'Delete'}
                     </button>
@@ -154,7 +154,7 @@ const Home = () => {
                         {question.tags.slice(0, 3).map((tag, index) => (
                           <span
                             key={index}
-                            className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs"
+                            className="bg-gray-100 px-2 py-1 rounded text-xs"
                           >
                             {tag}
                           </span>

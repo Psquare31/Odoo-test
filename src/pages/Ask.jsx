@@ -52,7 +52,7 @@ const Ask = () => {
   return (
     <div className="max-w-4xl mx-auto p-4">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Ask a Question</h1>
+        <h1 className="text-3xl font-bold mb-2 handwritten-title">Ask a Question</h1>
         <p className="text-gray-600">
           Share your knowledge and help others by asking a well-formulated question.
         </p>
@@ -69,7 +69,7 @@ const Ask = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="What's your question? Be specific."
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full border rounded-lg px-4 py-3"
             required
           />
           <p className="text-sm text-gray-500 mt-1">
@@ -81,7 +81,7 @@ const Ask = () => {
           <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
             Description *
           </label>
-          <div className="border border-gray-300 rounded-lg">
+          <div className="border rounded-lg">
             <ReactQuill
               value={description}
               onChange={setDescription}
@@ -110,7 +110,7 @@ const Ask = () => {
             value={tags}
             onChange={(e) => setTags(e.target.value)}
             placeholder="Add up to 5 tags separated by commas (e.g., javascript, react, web-development)"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full border rounded-lg px-4 py-3"
           />
           <p className="text-sm text-gray-500 mt-1">
             Add up to 5 tags to help categorize your question
@@ -121,14 +121,14 @@ const Ask = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-blue-500 text-white px-6 py-3 rounded-lg btn disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Posting Question...' : 'Post Question'}
           </button>
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-400"
+            className="bg-gray-300 px-6 py-3 rounded-lg btn"
           >
             Cancel
           </button>

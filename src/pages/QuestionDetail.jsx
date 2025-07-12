@@ -142,12 +142,12 @@ const QuestionDetail = () => {
       {/* Question */}
       <div className="mb-8">
         <div className="flex justify-between items-start mb-4">
-          <h1 className="text-3xl font-bold">{question.title}</h1>
+          <h1 className="text-3xl font-bold handwritten-title">{question.title}</h1>
           {canDeleteQuestion && (
             <button
               onClick={handleDeleteQuestion}
               disabled={deleting}
-              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-red-500 text-white px-4 py-2 rounded btn disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {deleting ? 'Deleting...' : 'Delete Question'}
             </button>
@@ -165,7 +165,7 @@ const QuestionDetail = () => {
             {question.tags.map((tag, index) => (
               <span
                 key={index}
-                className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                className="bg-blue-100 px-3 py-1 rounded-full text-sm"
               >
                 {tag}
               </span>
@@ -181,7 +181,7 @@ const QuestionDetail = () => {
 
       {/* Answers */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">
+        <h2 className="text-2xl font-bold mb-4 handwritten-title">
           {answers.length} Answer{answers.length !== 1 ? 's' : ''}
         </h2>
         
@@ -190,19 +190,19 @@ const QuestionDetail = () => {
         ) : (
           <div className="space-y-6">
             {answers.map((answer) => (
-              <div key={answer._id} className="border border-gray-200 rounded-lg p-6">
+              <div key={answer._id} className="border rounded-lg p-6">
                 <div className="flex items-start gap-4">
                   <div className="flex flex-col items-center gap-2">
                     <button
                       onClick={() => handleVote(answer._id, 'up')}
-                      className="text-gray-400 hover:text-blue-500"
+                      className="vote-button"
                     >
                       ▲
                     </button>
                     <span className="font-semibold">{answer.votes}</span>
                     <button
                       onClick={() => handleVote(answer._id, 'down')}
-                      className="text-gray-400 hover:text-red-500"
+                      className="vote-button"
                     >
                       ▼
                     </button>
@@ -227,8 +227,8 @@ const QuestionDetail = () => {
 
       {/* Answer Form */}
       <div className="border-t pt-8">
-        <h3 className="text-xl font-bold mb-4">Your Answer</h3>
-        <div className="border border-gray-300 rounded-lg mb-4">
+        <h3 className="text-xl font-bold mb-4 handwritten-title">Your Answer</h3>
+        <div className="border rounded-lg mb-4">
           <ReactQuill
             value={newAnswer}
             onChange={setNewAnswer}
@@ -248,7 +248,7 @@ const QuestionDetail = () => {
         <button
           onClick={handleSubmitAnswer}
           disabled={submitting || !newAnswer.trim()}
-          className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-blue-500 text-white px-6 py-3 rounded-lg btn disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {submitting ? 'Posting Answer...' : 'Post Answer'}
         </button>
